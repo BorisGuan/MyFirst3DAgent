@@ -1,0 +1,1 @@
+"""Source templates for Blender-side authoring helpers."""

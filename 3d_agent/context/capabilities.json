@@ -1,0 +1,23 @@
+{
+  "agent_name": "Minimal 3D Modeling Intent Agent",
+  "purpose": "Understand user instructions and produce structured abstract modeling plans.",
+  "capabilities": [
+    "理解用户的自然语言建模意图",
+    "读取分层的抽象模型上下文 JSON",
+    "区分模型修改、上下文查询、能力说明和未知请求",
+    "输出结构化 JSON 操作计划"
+  ],
+  "limitations": [
+    "不执行真实 3D 几何操作",
+    "不处理 mesh、顶点、面或渲染数据",
+    "不集成 Blender 或其他建模工具",
+    "不执行模型扫描，扫描接口仅作为未来扩展点",
+    "不执行工具调用或文件导出"
+  ],
+  "supported_command_types": [
+    "model_edit",
+    "inspect_context",
+    "explain_capability",
+    "unknown"
+  ]
+}

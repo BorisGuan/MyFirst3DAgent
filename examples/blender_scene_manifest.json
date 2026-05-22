@@ -1,0 +1,140 @@
+{
+  "manifest_version": "v0_5",
+  "source_software": "blender",
+  "source_file": "demo_gundam.blend",
+  "unit_system": "metric",
+  "objects": [
+    {
+      "object_name": "ChestArmor_Upper_01",
+      "object_type": "MESH",
+      "collection_path": ["Gundam", "Body", "Chest"],
+      "dimensions": [2.4, 0.8, 1.1],
+      "location": [0.0, -0.18, 3.2],
+      "rotation_euler": [0.0, 0.0, 0.0],
+      "vertex_count": 1240,
+      "material_names": ["armor_white", "inner_frame_gray"],
+      "custom_properties": {
+        "part_role": "chest_armor"
+      }
+    },
+    {
+      "object_name": "Backpack_Block_01",
+      "object_type": "MESH",
+      "collection_path": ["Gundam", "Equipment", "Backpack"],
+      "dimensions": [1.6, 0.7, 1.4],
+      "location": [0.0, 0.62, 3.15],
+      "rotation_euler": [0.0, 0.0, 0.0],
+      "vertex_count": 980,
+      "material_names": ["armor_blue", "mechanical_gray"],
+      "custom_properties": {
+        "part_role": "backpack"
+      }
+    },
+    {
+      "object_name": "Backpack_Thruster_L",
+      "object_type": "MESH",
+      "collection_path": ["Gundam", "Equipment", "Backpack", "Thrusters"],
+      "dimensions": [0.38, 0.42, 0.52],
+      "location": [-0.48, 0.9, 2.72],
+      "rotation_euler": [0.0, 0.0, 0.0],
+      "vertex_count": 420,
+      "material_names": ["thruster_dark", "metal_burnt"],
+      "custom_properties": {
+        "part_role": "thruster",
+        "side": "left"
+      }
+    },
+    {
+      "object_name": "Backpack_Thruster_R",
+      "object_type": "MESH",
+      "collection_path": ["Gundam", "Equipment", "Backpack", "Thrusters"],
+      "dimensions": [0.38, 0.42, 0.52],
+      "location": [0.48, 0.9, 2.72],
+      "rotation_euler": [0.0, 0.0, 0.0],
+      "vertex_count": 418,
+      "material_names": ["thruster_dark", "metal_burnt"],
+      "custom_properties": {
+        "part_role": "thruster",
+        "side": "right"
+      }
+    },
+    {
+      "object_name": "LeftLeg_Armor_01",
+      "object_type": "MESH",
+      "collection_path": ["Gundam", "Legs", "LeftLeg"],
+      "dimensions": [0.72, 0.62, 1.95],
+      "location": [-0.42, 0.0, 1.35],
+      "rotation_euler": [0.0, 0.0, 0.0],
+      "vertex_count": 860,
+      "material_names": ["armor_white", "joint_gray"],
+      "custom_properties": {
+        "part_role": "leg",
+        "side": "left"
+      }
+    },
+    {
+      "object_name": "RightLeg_Armor_01",
+      "object_type": "MESH",
+      "collection_path": ["Gundam", "Legs", "RightLeg"],
+      "dimensions": [0.72, 0.62, 1.95],
+      "location": [0.42, 0.0, 1.35],
+      "rotation_euler": [0.0, 0.0, 0.0],
+      "vertex_count": 858,
+      "material_names": ["armor_white", "joint_gray"],
+      "custom_properties": {
+        "part_role": "leg",
+        "side": "right"
+      }
+    },
+    {
+      "object_name": "Shield_Main_01",
+      "object_type": "MESH",
+      "collection_path": ["Gundam", "Weapons", "Shield"],
+      "dimensions": [1.1, 0.18, 2.05],
+      "location": [-1.45, -0.08, 2.35],
+      "rotation_euler": [0.0, 0.0, -0.12],
+      "vertex_count": 1120,
+      "material_names": ["armor_red", "armor_white"],
+      "custom_properties": {
+        "part_role": "shield"
+      }
+    },
+    {
+      "object_name": "Head_CameraSensor_01",
+      "object_type": "MESH",
+      "collection_path": ["Gundam", "Head", "Sensors"],
+      "dimensions": [0.18, 0.06, 0.1],
+      "location": [0.0, -0.38, 4.12],
+      "rotation_euler": [0.0, 0.0, 0.0],
+      "vertex_count": 180,
+      "material_names": ["sensor_green", "clear_lens"],
+      "custom_properties": {
+        "part_role": "camera_sensor"
+      }
+    },
+    {
+      "object_name": "Panel_Unknown_03",
+      "object_type": "MESH",
+      "collection_path": ["Gundam", "Unsorted"],
+      "dimensions": [0.5, 0.12, 0.42],
+      "location": [1.2, 0.3, 2.0],
+      "rotation_euler": [0.0, 0.0, 0.0],
+      "vertex_count": 160,
+      "material_names": ["armor_white"],
+      "custom_properties": {}
+    },
+    {
+      "object_name": "Chest_SurfaceGuide_Curve",
+      "object_type": "CURVE",
+      "collection_path": ["Gundam", "Guides", "Chest"],
+      "dimensions": [1.4, 0.02, 0.02],
+      "location": [0.0, -0.52, 3.35],
+      "rotation_euler": [0.0, 0.0, 0.0],
+      "vertex_count": 0,
+      "material_names": [],
+      "custom_properties": {
+        "guide_role": "surface_boundary_candidate"
+      }
+    }
+  ]
+}

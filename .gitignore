@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+
+outputs/
+test_results.txt
+v06_chest_armor_preview_001_preview_report.json

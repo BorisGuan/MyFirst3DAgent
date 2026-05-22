@@ -1,0 +1,93 @@
+{
+  "detail_types": {
+    "panel_lines": {
+      "display_name": "面板线/刻线",
+      "keywords": ["刻线", "面板线", "装甲线", "panel line", "armor line"]
+    },
+    "parting_lines": {
+      "display_name": "分件线",
+      "keywords": ["分件线", "分割线", "分色线", "装甲分割", "parting line", "seam line"]
+    },
+    "armor_layers": {
+      "display_name": "装甲分层",
+      "keywords": ["装甲分层", "装甲层次", "机械细节", "结构细节", "零件", "叠甲", "外甲", "层叠", "greeble", "armor layer", "layered armor"]
+    },
+    "vents": {
+      "display_name": "散热口",
+      "keywords": ["散热口", "散热片", "进气口", "排气口", "格栅", "vent", "vents", "grille"]
+    },
+    "thrusters": {
+      "display_name": "喷口/推进器",
+      "keywords": ["喷口", "喷嘴", "推进器", "助推器", "喷射器", "vernier", "thruster", "booster"]
+    },
+    "pipes": {
+      "display_name": "管线",
+      "keywords": ["管线", "线缆", "电缆", "软管", "管路", "pipe", "pipes", "cable", "hose"]
+    },
+    "hydraulic_rods": {
+      "display_name": "液压杆",
+      "keywords": ["液压杆", "液压缸", "活塞", "支撑杆", "hydraulic", "hydraulic rod", "piston"]
+    },
+    "sensors": {
+      "display_name": "传感器",
+      "keywords": ["传感器", "摄像头", "监视器", "探头", "镜头", "sensor", "camera", "lens"]
+    },
+    "weapon_mounts": {
+      "display_name": "武器挂点",
+      "keywords": ["武器挂点", "挂点", "接口", "挂架", "连接点", "weapon mount", "hardpoint", "mount"]
+    },
+    "surface_damage": {
+      "display_name": "战损缺口",
+      "keywords": ["战损", "表面划痕", "划痕", "刮痕", "缺口", "破损", "弹痕", "damage", "scratches", "battle damage"]
+    },
+    "weathering": {
+      "display_name": "表面旧化",
+      "keywords": ["旧化", "磨损", "掉漆", "生锈", "污渍", "做旧", "weathering", "wear", "rust"]
+    }
+  },
+  "operations": {
+    "add_panel_lines": ["加刻线", "增加刻线", "添加面板线", "加面板线", "panel line"],
+    "add_parting_lines": ["加分件线", "增加分件线", "添加分割线", "分件", "分色", "parting line"],
+    "add_armor_layers": ["增加装甲层次", "加装甲分层", "叠甲", "增加外甲", "layer armor"],
+    "add_vents": ["加散热口", "增加散热片", "添加格栅", "加进气口", "add vents"],
+    "add_thrusters": ["加喷口", "增加推进器", "添加助推器", "加喷嘴", "add thruster"],
+    "add_pipes": ["加管线", "增加线缆", "添加软管", "加管路", "add pipes"],
+    "add_hydraulic_rods": ["加液压杆", "增加液压缸", "添加活塞", "加支撑杆", "add hydraulic"],
+    "add_sensors": ["加传感器", "增加摄像头", "添加监视器", "加镜头", "add sensors"],
+    "add_weapon_mounts": ["加武器挂点", "增加接口", "添加挂架", "加连接点", "add weapon mount"],
+    "add_surface_damage": ["加战损", "增加划痕", "添加破损", "做战损", "add damage"],
+    "refine_surface": ["细化", "优化", "精修", "调整表面", "refine surface"]
+  },
+  "actions": {
+    "add_detail": ["增加", "添加", "加", "补充"],
+    "enhance_detail": ["增强", "强化", "提升", "更复杂"],
+    "refine_surface": ["细化", "优化", "精修", "调整表面"]
+  },
+  "styles": {
+    "default_mecha": ["默认", "普通", "标准", "机甲风", "mecha"],
+    "sharp_mechanical": ["锐利", "尖锐", "棱角", "斜切", "硬朗", "sharp", "angular"],
+    "heavy_armor": ["厚重", "重甲", "重装", "装甲厚", "heavy armor"],
+    "military_realistic": ["军武", "写实", "军事", "实战", "military", "realistic"],
+    "clean_anime": ["动画风", "干净", "简洁", "清爽", "anime", "clean"],
+    "high_mobility": ["高机动", "高速", "推进", "机动", "high mobility", "fast"],
+    "exposed_inner_frame": ["内构外露", "露内构", "骨架外露", "外露框架", "inner frame"]
+  },
+  "symmetries": {
+    "single_target": ["只改", "单独", "这个部位", "single"],
+    "left_right_mirror": ["左右", "两侧", "对称", "镜像", "左边和右边", "mirror"],
+    "centerline_symmetry": ["中线对称", "中心对称", "沿中线", "centerline"],
+    "group_sync": ["全部", "所有", "同样", "统一", "成组", "group", "sync"]
+  },
+  "scales": {
+    "unknown": ["未知比例", "不确定比例"],
+    "non_scale": ["无比例", "non scale", "non-scale"],
+    "1/144": ["1/144", "144", "hg", "rg"],
+    "1/100": ["1/100", "100", "mg"],
+    "1/60": ["1/60", "60", "pg"]
+  },
+  "densities": {
+    "low": ["少量", "一点", "轻微", "克制", "不要太", "low"],
+    "medium": ["一些", "适量", "中等", "medium"],
+    "high": ["大量", "很多", "密集", "复杂", "高密度", "high"]
+  }
+}

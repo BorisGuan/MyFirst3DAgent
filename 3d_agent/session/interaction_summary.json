@@ -1,0 +1,226 @@
+{
+  "summary_version": "1.0",
+  "turn_count": 2373,
+  "recent_interactions": [
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给两条腿加同样的管线和液压杆，密度中等。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "leg",
+        "action": null,
+        "detail_type": "hydraulic_rods",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给两条腿加同样的管线和液压杆，密度中等。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "leg",
+        "action": null,
+        "detail_type": "hydraulic_rods",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "把背包的推进器做得更高机动一点，加喷口和机械细节。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "backpack",
+        "action": null,
+        "detail_type": "thrusters",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "把背包的推进器做得更高机动一点，加喷口和机械细节。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "backpack",
+        "action": null,
+        "detail_type": "thrusters",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    },
+    {
+      "user_input": "给胸甲加一些锐利的分件线，适合 1/144 打印。",
+      "command_type": "model_edit",
+      "confidence": "medium",
+      "result_summary": {
+        "target_part": "chest_armor",
+        "action": null,
+        "detail_type": "parting_lines",
+        "density": "medium"
+      }
+    }
+  ]
+}

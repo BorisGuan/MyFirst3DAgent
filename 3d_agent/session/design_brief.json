@@ -1,0 +1,7 @@
+{
+  "project_goal": "",
+  "style": [],
+  "constraints": ["不执行真实 3D 几何操作", "只输出抽象建模操作计划"],
+  "focus_parts": [],
+  "avoid": []
+}

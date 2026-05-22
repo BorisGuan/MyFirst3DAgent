@@ -1,0 +1,97 @@
+{
+  "rule_pack_version": "v0_8",
+  "default_geometry_constraints": [
+    "preview_before_mesh_edit",
+    "do_not_overwrite_source_blend",
+    "prefer_non_destructive_helpers",
+    "record_geometry_diff_before_apply"
+  ],
+  "scale_rules": {
+    "1/144": {
+      "density_warning_threshold": "high",
+      "warnings": [
+        "1/144 scale requires restrained line density and readable spacing.",
+        "Avoid thin free-floating parts that may break during printing or handling."
+      ],
+      "geometry_constraints": [
+        "avoid_micro_panel_lines",
+        "avoid_thin_free_floating_parts"
+      ]
+    }
+  },
+  "part_rules": {
+    "chest_armor": {
+      "recommended_detail_types": ["panel_lines", "parting_lines", "armor_layers", "vents"],
+      "blocked_detail_types": ["thrusters", "weapon_mounts"],
+      "warnings": [
+        "Chest armor should preserve the central silhouette and cockpit/core visual hierarchy."
+      ],
+      "geometry_constraints": ["keep_center_mass_readable", "avoid_large_forward_thrusters"]
+    },
+    "backpack": {
+      "recommended_detail_types": ["thrusters", "vents", "pipes", "weapon_mounts", "armor_layers"],
+      "blocked_detail_types": [],
+      "warnings": [
+        "Backpack details need clear thrust direction and enough clearance from shoulders and head."
+      ],
+      "geometry_constraints": ["check_thruster_orientation", "preserve_mounting_clearance"]
+    },
+    "leg_armor": {
+      "recommended_detail_types": ["panel_lines", "parting_lines", "hydraulic_rods", "pipes", "armor_layers"],
+      "blocked_detail_types": [],
+      "warnings": [
+        "Leg details usually need left-right symmetry and joint clearance review."
+      ],
+      "geometry_constraints": ["mirror_left_right_when_applicable", "preserve_joint_clearance"]
+    },
+    "shield": {
+      "recommended_detail_types": ["panel_lines", "parting_lines", "surface_damage", "weathering", "armor_layers"],
+      "blocked_detail_types": ["thrusters"],
+      "warnings": [
+        "Shield damage should stay shallow unless thickness data is available."
+      ],
+      "geometry_constraints": ["avoid_deep_damage_without_thickness", "preserve_outer_profile"]
+    },
+    "head": {
+      "recommended_detail_types": ["sensors", "panel_lines", "vents"],
+      "blocked_detail_types": ["large_thrusters", "weapon_mounts"],
+      "warnings": [
+        "Head details should preserve camera visibility and recognizable face proportions."
+      ],
+      "geometry_constraints": ["preserve_sensor_visibility", "avoid_face_overcrowding"]
+    }
+  },
+  "operation_detail_types": {
+    "add_panel_lines": "panel_lines",
+    "add_parting_lines": "parting_lines",
+    "add_armor_layers": "armor_layers",
+    "add_vents": "vents",
+    "add_thrusters": "thrusters",
+    "add_pipes": "pipes",
+    "add_hydraulic_rods": "hydraulic_rods",
+    "add_sensors": "sensors",
+    "add_weapon_mounts": "weapon_mounts",
+    "add_surface_damage": "surface_damage",
+    "refine_surface": "panel_lines"
+  },
+  "symmetry_rules": {
+    "leg_armor": {
+      "recommended_symmetry": "left_right_mirror",
+      "warning": "Leg armor changes should usually be mirrored unless the user explicitly asks for asymmetry."
+    },
+    "backpack": {
+      "recommended_symmetry": "left_right_mirror",
+      "warning": "Backpack thrusters and vents often need paired placement for visual balance."
+    }
+  },
+  "blocked_user_intents": {
+    "overwrite_source_blend": {
+      "keywords": ["覆盖保存", "覆盖原文件", "overwrite", "save over"],
+      "warning": "Do not overwrite the source .blend file; save a copy before applying geometry changes."
+    },
+    "direct_mesh_edit_without_preview": {
+      "keywords": ["直接修改mesh", "直接改mesh", "不用预览", "skip preview"],
+      "warning": "Direct mesh edits require preview and geometry diff review first."
+    }
+  }
+}

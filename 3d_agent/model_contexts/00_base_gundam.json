@@ -1,0 +1,213 @@
+{
+  "model": {
+    "context_version": "1.0",
+    "context_type": "base_catalog",
+    "name": "Gundam",
+    "description": "Abstract Gundam model context for intent planning. This is not mesh or geometry data.",
+    "parts": [
+      {
+        "name": "head",
+        "display_name": "头部",
+        "category": "core_body",
+        "detail_level": "low",
+        "aliases": ["head", "头", "头部", "脑袋", "面部"]
+      },
+      {
+        "name": "body",
+        "display_name": "身体/躯干",
+        "category": "core_body",
+        "detail_level": "medium",
+        "aliases": ["body", "torso", "身体", "躯干", "胸部", "机身", "主体"]
+      },
+      {
+        "name": "waist",
+        "display_name": "腰部",
+        "category": "core_body",
+        "detail_level": "medium",
+        "aliases": ["waist", "腰", "腰部", "胯部"]
+      },
+      {
+        "name": "arm",
+        "display_name": "手臂",
+        "category": "limb_group",
+        "detail_level": "low",
+        "aliases": ["arm", "arms", "手臂", "胳膊", "上肢"]
+      },
+      {
+        "name": "left_arm",
+        "display_name": "左臂",
+        "category": "limb",
+        "detail_level": "low",
+        "aliases": ["left arm", "左臂", "左手臂"]
+      },
+      {
+        "name": "right_arm",
+        "display_name": "右臂",
+        "category": "limb",
+        "detail_level": "low",
+        "aliases": ["right arm", "右臂", "右手臂"]
+      },
+      {
+        "name": "hand",
+        "display_name": "手部",
+        "category": "limb_group",
+        "detail_level": "low",
+        "aliases": ["hand", "hands", "手", "手部", "机械手"]
+      },
+      {
+        "name": "leg",
+        "display_name": "腿部",
+        "category": "limb_group",
+        "detail_level": "low",
+        "aliases": ["leg", "legs", "腿", "腿部", "下肢"]
+      },
+      {
+        "name": "left_leg",
+        "display_name": "左腿",
+        "category": "limb",
+        "detail_level": "low",
+        "aliases": ["left leg", "左腿", "左腿部"]
+      },
+      {
+        "name": "right_leg",
+        "display_name": "右腿",
+        "category": "limb",
+        "detail_level": "low",
+        "aliases": ["right leg", "右腿", "右腿部"]
+      },
+      {
+        "name": "foot",
+        "display_name": "脚部",
+        "category": "limb_group",
+        "detail_level": "low",
+        "aliases": ["foot", "feet", "脚", "脚部", "足部"]
+      },
+      {
+        "name": "shoulder_armor",
+        "display_name": "肩甲",
+        "category": "armor",
+        "detail_level": "medium",
+        "aliases": ["shoulder armor", "肩甲", "肩部装甲", "肩膀装甲"]
+      },
+      {
+        "name": "chest_armor",
+        "display_name": "胸甲",
+        "category": "armor",
+        "detail_level": "medium",
+        "aliases": ["chest armor", "胸甲", "胸部装甲", "胸口装甲"]
+      },
+      {
+        "name": "skirt_armor",
+        "display_name": "裙甲",
+        "category": "armor",
+        "detail_level": "medium",
+        "aliases": ["skirt armor", "裙甲", "前裙甲", "侧裙甲", "后裙甲"]
+      },
+      {
+        "name": "knee_armor",
+        "display_name": "膝甲",
+        "category": "armor",
+        "detail_level": "low",
+        "aliases": ["knee armor", "膝甲", "膝盖装甲"]
+      },
+      {
+        "name": "backpack",
+        "display_name": "背包",
+        "category": "equipment",
+        "detail_level": "low",
+        "aliases": ["backpack", "背包", "推进背包", "背部组件", "背部装备"]
+      },
+      {
+        "name": "wing_unit",
+        "display_name": "翼状组件",
+        "category": "equipment",
+        "detail_level": "low",
+        "aliases": ["wing", "wing unit", "翅膀", "翼", "飞翼", "翼状组件"]
+      },
+      {
+        "name": "booster",
+        "display_name": "推进器",
+        "category": "equipment",
+        "detail_level": "low",
+        "aliases": ["booster", "推进器", "助推器", "喷射器"]
+      },
+      {
+        "name": "thruster",
+        "display_name": "喷口",
+        "category": "equipment",
+        "detail_level": "low",
+        "aliases": ["thruster", "vernier", "喷口", "喷嘴", "姿态喷口", "推进喷口"]
+      },
+      {
+        "name": "fuel_tank",
+        "display_name": "燃料罐",
+        "category": "equipment",
+        "detail_level": "low",
+        "aliases": ["fuel tank", "燃料罐", "外挂油箱", "推进剂罐"]
+      },
+      {
+        "name": "shield",
+        "display_name": "盾牌",
+        "category": "weapon_accessory",
+        "detail_level": "medium",
+        "aliases": ["shield", "盾", "盾牌", "护盾"]
+      },
+      {
+        "name": "beam_rifle",
+        "display_name": "光束步枪",
+        "category": "weapon",
+        "detail_level": "medium",
+        "aliases": ["beam rifle", "rifle", "光束步枪", "步枪", "枪"]
+      },
+      {
+        "name": "beam_saber",
+        "display_name": "光束军刀",
+        "category": "weapon",
+        "detail_level": "low",
+        "aliases": ["beam saber", "saber", "光束军刀", "光剑", "军刀"]
+      },
+      {
+        "name": "bazooka",
+        "display_name": "火箭筒",
+        "category": "weapon",
+        "detail_level": "low",
+        "aliases": ["bazooka", "火箭筒", "炮筒", "重炮"]
+      },
+      {
+        "name": "funnel",
+        "display_name": "浮游炮",
+        "category": "weapon_accessory",
+        "detail_level": "low",
+        "aliases": ["funnel", "funnels", "浮游炮", "感应炮"]
+      },
+      {
+        "name": "antenna",
+        "display_name": "天线/V字天线",
+        "category": "detail_part",
+        "detail_level": "low",
+        "aliases": ["antenna", "v-fin", "天线", "V字天线", "角"]
+      },
+      {
+        "name": "camera_sensor",
+        "display_name": "摄像头/传感器",
+        "category": "detail_part",
+        "detail_level": "low",
+        "aliases": ["camera", "sensor", "摄像头", "传感器", "监视器", "眼睛"]
+      },
+      {
+        "name": "cockpit_hatch",
+        "display_name": "驾驶舱舱门",
+        "category": "detail_part",
+        "detail_level": "medium",
+        "aliases": ["cockpit", "hatch", "驾驶舱", "舱门", "驾驶舱舱门"]
+      },
+      {
+        "name": "weapon_mount",
+        "display_name": "武器挂点",
+        "category": "equipment",
+        "detail_level": "low",
+        "aliases": ["weapon mount", "挂点", "武器挂点", "接口", "挂架"]
+      }
+    ]
+  }
+}
