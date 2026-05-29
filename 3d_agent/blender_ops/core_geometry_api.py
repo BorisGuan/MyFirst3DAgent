@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from core_api import (
     add_bevel_modifier,
+    add_solidify_modifier,
+    add_weighted_normal_modifier,
     build_modification_report,
     object_snapshot,
     remove_or_replace_named_modifier,
@@ -15,6 +17,8 @@ from core_api import (
 
 __all__ = [
     "add_bevel_modifier",
+    "add_solidify_modifier",
+    "add_weighted_normal_modifier",
     "build_modification_report",
     "object_snapshot",
     "remove_or_replace_named_modifier",

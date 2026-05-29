@@ -40,6 +40,67 @@ def add_bevel_modifier(object: Any, width: float, segments: int, modifier_name: 
     return modifier
 
 
+def add_weighted_normal_modifier(object: Any, weight: float, keep_sharp: bool, modifier_name: str) -> Any:
+    """Add a named WEIGHTED_NORMAL modifier to an object and return the modifier."""
+    if not modifier_name:
+        raise ValueError("modifier_name is required.")
+    weight_value = float(weight)
+    if weight_value <= 0:
+        raise ValueError("weight must be greater than 0.")
+    if not isinstance(keep_sharp, bool):
+        raise TypeError("keep_sharp must be a boolean.")
+
+    _require_modifier_collection(object)
+    remove_or_replace_named_modifier(object, modifier_name)
+    modifier = object.modifiers.new(name=modifier_name, type="WEIGHTED_NORMAL")
+    modifier.weight = weight_value
+    modifier.keep_sharp = keep_sharp
+    record_modified_object(
+        {
+            "object_name": str(getattr(object, "name", "")),
+            "change_type": "modifier_added",
+            "modifier_name": modifier_name,
+            "modifier_type": "WEIGHTED_NORMAL",
+            "parameters": {
+                "weight": weight_value,
+                "keep_sharp": keep_sharp,
+            },
+            "mesh_data_applied": False,
+        }
+    )
+    return modifier
+
+
+def add_solidify_modifier(object: Any, thickness: float, offset: float, modifier_name: str) -> Any:
+    """Add a named SOLIDIFY modifier to an object and return the modifier."""
+    if not modifier_name:
+        raise ValueError("modifier_name is required.")
+    thickness_value = float(thickness)
+    if thickness_value <= 0:
+        raise ValueError("thickness must be greater than 0.")
+    offset_value = float(offset)
+
+    _require_modifier_collection(object)
+    remove_or_replace_named_modifier(object, modifier_name)
+    modifier = object.modifiers.new(name=modifier_name, type="SOLIDIFY")
+    modifier.thickness = thickness_value
+    modifier.offset = offset_value
+    record_modified_object(
+        {
+            "object_name": str(getattr(object, "name", "")),
+            "change_type": "modifier_added",
+            "modifier_name": modifier_name,
+            "modifier_type": "SOLIDIFY",
+            "parameters": {
+                "thickness": thickness_value,
+                "offset": offset_value,
+            },
+            "mesh_data_applied": False,
+        }
+    )
+    return modifier
+
+
 def remove_or_replace_named_modifier(object: Any, modifier_name: str) -> dict[str, Any] | None:
     """Remove an existing modifier by name and return its previous snapshot."""
     if not modifier_name:

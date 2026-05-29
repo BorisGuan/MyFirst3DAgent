@@ -24,11 +24,33 @@ class ExecutionContext:
 def default_execution_context() -> ExecutionContext:
     """Return Runtime dependencies for the current supported operation set."""
     import core_api
-    from blender_ops.domain_operations import edge_soften
+    from blender_ops.domain_operations import (
+        armor_edge_lip_prepare,
+        armor_layer_plate_prepare,
+        edge_soften,
+        hardpoint_socket_prepare,
+        panel_line_bevel_prepare,
+        solidify_thickness_preview,
+        surface_inset_prepare,
+        thruster_nozzle_prepare,
+        vent_slot_prepare,
+        weighted_normal_finish,
+    )
     from reporting import report_writer
 
     return ExecutionContext(
-        domain_handlers={"edge_soften": edge_soften},
+        domain_handlers={
+            "armor_edge_lip_prepare": armor_edge_lip_prepare,
+            "armor_layer_plate_prepare": armor_layer_plate_prepare,
+            "edge_soften": edge_soften,
+            "hardpoint_socket_prepare": hardpoint_socket_prepare,
+            "panel_line_bevel_prepare": panel_line_bevel_prepare,
+            "solidify_thickness_preview": solidify_thickness_preview,
+            "surface_inset_prepare": surface_inset_prepare,
+            "thruster_nozzle_prepare": thruster_nozzle_prepare,
+            "vent_slot_prepare": vent_slot_prepare,
+            "weighted_normal_finish": weighted_normal_finish,
+        },
         persistence_api=core_api,
         report_writer=report_writer,
     )

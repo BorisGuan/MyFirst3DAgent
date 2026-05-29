@@ -25,6 +25,10 @@ class OperationSpec:
     safety_level: str = "safe_non_destructive"
     handler_name: str = ""
     report_schema: dict[str, Any] = field(default_factory=dict)
+    intent_actions: tuple[str, ...] = ()
+    intent_detail_types: tuple[str, ...] = ()
+    intent_effects: tuple[str, ...] = ()
+    priority: int = 100
 
     def supports_task_type(self, task_type: str) -> bool:
         """Return whether this operation supports task_type."""
@@ -41,6 +45,10 @@ class OperationSpec:
             "safety_level": self.safety_level,
             "handler_name": self.handler_name,
             "report_schema": dict(self.report_schema),
+            "intent_actions": list(self.intent_actions),
+            "intent_detail_types": list(self.intent_detail_types),
+            "intent_effects": list(self.intent_effects),
+            "priority": self.priority,
         }
 
 

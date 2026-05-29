@@ -120,6 +120,150 @@ class PlanningEngineFlowTests(unittest.TestCase):
         self.assertEqual(task.planning.parameters, {"strength": 0.01, "style": "clean"})
         self.assertGreaterEqual(len(task.planning.reasoning), 3)
 
+    def test_explicit_operation_parameter_does_not_become_domain_parameter(self) -> None:
+        task = draft_task({"operation": "edge_soften", "style": "clean"})
+
+        plan_task(task, scene_manifest=fake_manifest(), registry=fake_registry())
+
+        self.assertEqual(task.planning.selected_operation, "edge_soften")
+        self.assertEqual(task.planning.parameters, {"strength": 0.01, "style": "clean"})
+        self.assertNotIn("operation", task.planning.parameters)
+
+    def test_default_registry_plans_weighted_normal_finish_intent(self) -> None:
+        task = draft_task({"weight": 25.0, "keep_sharp": "false"})
+        task.intent.action = "improve_shading"
+        task.intent.detail_type = "weighted_normal"
+        task.intent.desired_effect = "hard_surface_shading_finish"
+
+        plan_task(task, scene_manifest=fake_manifest())
+
+        self.assertEqual(task.state, TaskState.READY_TO_EXECUTE)
+        self.assertEqual(task.planning.selected_operation, "weighted_normal_finish")
+        self.assertEqual(
+            task.planning.parameters,
+            {"weight": 25.0, "keep_sharp": "false", "modifier_name": "AI_WeightedNormal_Finish"},
+        )
+
+    def test_default_registry_plans_solidify_thickness_preview_intent(self) -> None:
+        task = draft_task({"thickness": 0.025, "offset": -1.0})
+        task.intent.action = "add_thickness_preview"
+        task.intent.detail_type = "armor_thickness"
+        task.intent.desired_effect = "heavy_armor_feel"
+
+        plan_task(task, scene_manifest=fake_manifest())
+
+        self.assertEqual(task.state, TaskState.READY_TO_EXECUTE)
+        self.assertEqual(task.planning.selected_operation, "solidify_thickness_preview")
+        self.assertEqual(
+            task.planning.parameters,
+            {"thickness": 0.025, "offset": -1.0, "modifier_name": "AI_Solidify_ThicknessPreview"},
+        )
+
+    def test_default_registry_plans_panel_line_bevel_prepare_intent(self) -> None:
+        task = draft_task({"width": 0.008, "segments": 2})
+        task.intent.action = "add_panel_lines"
+        task.intent.detail_type = "panel_lines"
+        task.intent.desired_effect = "panel_lines"
+
+        plan_task(task, scene_manifest=fake_manifest())
+
+        self.assertEqual(task.state, TaskState.READY_TO_EXECUTE)
+        self.assertEqual(task.planning.selected_operation, "panel_line_bevel_prepare")
+        self.assertEqual(
+            task.planning.parameters,
+            {"width": 0.008, "segments": 2, "modifier_name": "AI_PanelLine_Prepare"},
+        )
+
+    def test_default_registry_plans_armor_layer_plate_prepare_intent(self) -> None:
+        task = draft_task({"layer_depth": 0.02, "offset": 0.75})
+        task.intent.action = "prepare_armor_layers"
+        task.intent.detail_type = "armor_layer_plate"
+        task.intent.desired_effect = "armor_layer_preparation"
+
+        plan_task(task, scene_manifest=fake_manifest())
+
+        self.assertEqual(task.state, TaskState.READY_TO_EXECUTE)
+        self.assertEqual(task.planning.selected_operation, "armor_layer_plate_prepare")
+        self.assertEqual(
+            task.planning.parameters,
+            {"layer_depth": 0.02, "offset": 0.75, "modifier_name": "AI_ArmorLayer_PlatePrepare"},
+        )
+
+    def test_default_registry_plans_vent_slot_prepare_intent(self) -> None:
+        task = draft_task({"width": 0.005, "segments": 2})
+        task.intent.action = "add_vents"
+        task.intent.detail_type = "vents"
+        task.intent.desired_effect = "vent_slot_preparation"
+
+        plan_task(task, scene_manifest=fake_manifest())
+
+        self.assertEqual(task.state, TaskState.READY_TO_EXECUTE)
+        self.assertEqual(task.planning.selected_operation, "vent_slot_prepare")
+        self.assertEqual(
+            task.planning.parameters,
+            {"width": 0.005, "segments": 2, "modifier_name": "AI_VentSlot_Prepare"},
+        )
+
+    def test_default_registry_plans_thruster_nozzle_prepare_intent(self) -> None:
+        task = draft_task({"width": 0.012, "segments": 3})
+        task.intent.action = "add_thrusters"
+        task.intent.detail_type = "thrusters"
+        task.intent.desired_effect = "thruster_nozzle_preparation"
+
+        plan_task(task, scene_manifest=fake_manifest())
+
+        self.assertEqual(task.state, TaskState.READY_TO_EXECUTE)
+        self.assertEqual(task.planning.selected_operation, "thruster_nozzle_prepare")
+        self.assertEqual(
+            task.planning.parameters,
+            {"width": 0.012, "segments": 3, "modifier_name": "AI_ThrusterNozzle_Prepare"},
+        )
+
+    def test_default_registry_plans_hardpoint_socket_prepare_intent(self) -> None:
+        task = draft_task({"width": 0.01, "segments": 3})
+        task.intent.action = "add_weapon_mounts"
+        task.intent.detail_type = "hardpoint_socket"
+        task.intent.desired_effect = "hardpoint_socket_preparation"
+
+        plan_task(task, scene_manifest=fake_manifest())
+
+        self.assertEqual(task.state, TaskState.READY_TO_EXECUTE)
+        self.assertEqual(task.planning.selected_operation, "hardpoint_socket_prepare")
+        self.assertEqual(
+            task.planning.parameters,
+            {"width": 0.01, "segments": 3, "modifier_name": "AI_HardpointSocket_Prepare"},
+        )
+
+    def test_default_registry_plans_surface_inset_prepare_intent(self) -> None:
+        task = draft_task({"inset_depth": 0.01, "offset": -0.75})
+        task.intent.action = "prepare_surface_inset"
+        task.intent.detail_type = "surface_inset"
+        task.intent.desired_effect = "surface_inset_preparation"
+
+        plan_task(task, scene_manifest=fake_manifest())
+
+        self.assertEqual(task.state, TaskState.READY_TO_EXECUTE)
+        self.assertEqual(task.planning.selected_operation, "surface_inset_prepare")
+        self.assertEqual(
+            task.planning.parameters,
+            {"inset_depth": 0.01, "offset": -0.75, "modifier_name": "AI_SurfaceInset_Prepare"},
+        )
+
+    def test_default_registry_plans_armor_edge_lip_prepare_intent(self) -> None:
+        task = draft_task({"width": 0.012, "segments": 3})
+        task.intent.action = "prepare_armor_edge_lip"
+        task.intent.detail_type = "armor_edge_lip"
+        task.intent.desired_effect = "armor_edge_lip_preparation"
+
+        plan_task(task, scene_manifest=fake_manifest())
+
+        self.assertEqual(task.state, TaskState.READY_TO_EXECUTE)
+        self.assertEqual(task.planning.selected_operation, "armor_edge_lip_prepare")
+        self.assertEqual(
+            task.planning.parameters,
+            {"width": 0.012, "segments": 3, "modifier_name": "AI_ArmorEdgeLip_Prepare"},
+        )
+
     def test_validation_failure_stops_at_draft(self) -> None:
         task = draft_task()
         task.source.user_input = ""

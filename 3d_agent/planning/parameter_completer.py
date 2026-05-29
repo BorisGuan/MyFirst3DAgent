@@ -17,6 +17,9 @@ class ParameterCompletionError(ValueError):
     """Raised when Planning cannot complete valid operation parameters."""
 
 
+_PLANNING_ONLY_INTENT_PARAMETERS = frozenset({"operation"})
+
+
 def complete_parameters(
     task: TaskObject,
     registry: OperationRegistry | None = None,
@@ -61,6 +64,8 @@ def _operation_spec(registry: OperationRegistry, operation_name: str) -> Operati
 def _complete_parameters(operation_spec: OperationSpec, explicit_parameters: dict[str, Any]) -> dict[str, Any]:
     parameters = dict(operation_spec.default_parameters)
     for name, value in (explicit_parameters or {}).items():
+        if name in _PLANNING_ONLY_INTENT_PARAMETERS:
+            continue
         if name not in operation_spec.parameter_schema:
             raise ParameterCompletionError(f"Unsupported parameter for {operation_spec.name!r}: {name!r}.")
         parameters[name] = value

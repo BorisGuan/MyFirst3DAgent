@@ -2,20 +2,28 @@
 
 ## 0. 总结
 
-当前系统已经完成 Step 0-20：`TaskObject` 主链、Planning、Runtime、Reporting、CLI、fake E2E 和真实 Blender smoke 都已闭环。现在进入下一阶段：从单一真实操作 `edge_soften` 扩展到多个真实操作。
+当前系统已经完成 Step 0-22：`TaskObject` 主链、Planning、Runtime、Reporting、CLI、fake E2E、真实 Blender smoke、intent-aware operation selection 基础，以及 `edge_soften`、`weighted_normal_finish`、`solidify_thickness_preview`、`panel_line_bevel_prepare`、`armor_layer_plate_prepare`、`vent_slot_prepare`、`thruster_nozzle_prepare`、`hardpoint_socket_prepare`、`surface_inset_prepare`、`armor_edge_lip_prepare` 十个真实 modifier-only operation。原计划的 E2E/smoke 补强先暂缓，后续主线改为建设面向设计师常用动作的 operation library。详见 [Designer Operation Library 开发计划书](designer_operation_library_development_plan.md)。
 
 多 operation 扩展的核心目标不是“多写几个 Blender 函数”，而是让系统具备可解释、可测试、可扩展的操作选择能力。新增 operation 必须继续遵守现有分层：Agent 不碰执行，Planning 只选择和补参数，Runtime 只执行 ready task，Domain 只做领域操作，Core API 才能接触 `bpy`。
 
-本计划建议先做“多 operation 选择基础设施”，再添加第二个真实 operation。原因是当前 selector 会选择第一个 compatible operation；如果直接注册多个 `surface_detail_enhancement` operation，系统会因为注册顺序而不是用户意图来决定操作。这会让行为不稳定，也会破坏 TaskObject 作为事实源的可解释性。
+本计划已经完成“多 operation 选择基础设施”和第二个真实 operation。现在默认 registry 和 Runtime context 同时支持 `edge_soften` 与 `weighted_normal_finish`，并由用户意图和 `OperationSpec` 能力契约共同决定选择。
 
 推荐路线：
 
 ```text
-Step 21: Intent-aware operation selection foundation
-Step 22: Add weighted_normal_finish
-Step 23: Fake E2E multi-operation flow
-Step 24: Real Blender smoke for multiple operations
-Step 25: Evaluate operation sequence model
+Step 21: Intent-aware operation selection foundation [done]
+Step 22: Add weighted_normal_finish [done]
+Step DOL-1: Designer Operation Library Plan [done]
+Step DOL-2: Add solidify_thickness_preview [done]
+Step DOL-3: Add panel_line_bevel_prepare [done]
+Step DOL-4: Add armor_layer_plate_prepare [done]
+Step DOL-5: Add vent_slot_prepare [done]
+Step DOL-6: Atomic Operation Extension Analysis [done]
+Step DOL-7: Add thruster_nozzle_prepare [done]
+Step DOL-8: Add hardpoint_socket_prepare [done]
+Step AO-3: Add surface_inset_prepare [done]
+Step AO-4: Add armor_edge_lip_prepare [done]
+Step AO-5: Composite Pattern Candidate Table [next]
 ```
 
 第一批新增 operation 建议选择 modifier-only、非破坏、低风险操作，例如 `weighted_normal_finish` 和 `solidify_thickness_preview`。暂不建议马上做布尔切割、真实 mesh apply、曲线生成或多步骤组合操作。
@@ -201,9 +209,9 @@ handler(DomainOperationInput) -> OperationOutcome
 
 ### 4.2 需要先补齐的基础能力
 
-当前 `OperationSelector` 只按兼容性过滤，然后取第一个结果。多 operation 后这是不够的。
+当前 `OperationSelector` 已经可以在多个 compatible specs 中按显式 operation、`intent.action`、`intent.detail_type`、`intent.desired_effect` 和 `priority` 做选择。
 
-当前 `OperationSpec` 没有 intent selection metadata。Planning 无法判断 `edge_soften`、`weighted_normal_finish`、`solidify_thickness_preview` 谁更符合 `intent.action` 或 `intent.detail_type`。
+当前 `OperationSpec` 已经包含 intent selection metadata。默认 registry 已经包含 `edge_soften` 和 `weighted_normal_finish`，Runtime default context 也已经注册这两个 handler。下一步的问题不是基础执行能力，也不是优先补 E2E，而是继续扩展面向真实设计动作的 operation library。
 
 当前参数 schema 只支持 `number` 和 `string`。如果新增 operation 需要 boolean 参数，要么先用 string enum 表示，要么扩展 schema validator。
 
@@ -350,6 +358,8 @@ modifier_name: string, default AI_Solidify_ThicknessPreview
 
 ### Step 21：Intent-aware OperationSpec 与 Selector
 
+状态：已完成。
+
 修改文件：
 
 ```text
@@ -376,6 +386,8 @@ python -m unittest discover -s tests
 ```
 
 ### Step 22：新增 weighted_normal_finish
+
+状态：已完成。
 
 修改文件：
 
@@ -531,7 +543,7 @@ CLI 不直接调用 Domain/Core
 建议下一步开始：
 
 ```text
-Step 21: Intent-aware operation selection foundation
+Step AO-5: Composite Pattern 候选表
 ```
 
-第一刀只改 registry contract 和 selector，不新增真实 Blender operation。这样可以先把多 operation 的决策基础打稳，再进入 `weighted_normal_finish` 的 Domain/Core 实现。
+现在 `armor_edge_lip_prepare` 的 Registry、Planning、Runtime、Domain 和 Core 路径已经完成。下一刀应继续按照 [Atomic Operation 开发计划书](atomic_operation_development_plan.md) 整理 Composite Pattern 候选表，只列出 RG 胸甲、重甲腿、高机动背包等组合套路，不实现 sequence。

@@ -26,6 +26,10 @@ class FakeModifier:
         self.type = type
         self.width = 0.0
         self.segments = 0
+        self.weight = 0.0
+        self.keep_sharp = False
+        self.thickness = 0.0
+        self.offset = 0.0
 
 
 class FakeModifiers:
@@ -133,6 +137,46 @@ class Phase2CoreGeometryApiTests(unittest.TestCase):
         self.assertEqual(report["removed_modifiers"][0]["modifier"]["name"], "AI_Bevel")
         self.assertFalse(report["saved_original_file"])
 
+    def test_add_weighted_normal_modifier_replaces_named_modifier_and_records_report(self) -> None:
+        self.blender_object.modifiers.new(name="AI_WeightedNormal", type="WEIGHTED_NORMAL")
+
+        modifier = self.core_geometry_api.add_weighted_normal_modifier(
+            self.blender_object,
+            weight=50.0,
+            keep_sharp=True,
+            modifier_name="AI_WeightedNormal",
+        )
+        report = self.core_geometry_api.build_modification_report()
+
+        self.assertEqual(modifier.name, "AI_WeightedNormal")
+        self.assertEqual(modifier.type, "WEIGHTED_NORMAL")
+        self.assertEqual(modifier.weight, 50.0)
+        self.assertTrue(modifier.keep_sharp)
+        self.assertEqual(len(list(self.blender_object.modifiers)), 1)
+        self.assertEqual(report["modified_objects"][0]["modifier_type"], "WEIGHTED_NORMAL")
+        self.assertEqual(report["modified_objects"][0]["parameters"], {"weight": 50.0, "keep_sharp": True})
+        self.assertEqual(report["removed_modifiers"][0]["modifier"]["name"], "AI_WeightedNormal")
+
+    def test_add_solidify_modifier_replaces_named_modifier_and_records_report(self) -> None:
+        self.blender_object.modifiers.new(name="AI_Solidify", type="SOLIDIFY")
+
+        modifier = self.core_geometry_api.add_solidify_modifier(
+            self.blender_object,
+            thickness=0.015,
+            offset=0.0,
+            modifier_name="AI_Solidify",
+        )
+        report = self.core_geometry_api.build_modification_report()
+
+        self.assertEqual(modifier.name, "AI_Solidify")
+        self.assertEqual(modifier.type, "SOLIDIFY")
+        self.assertEqual(modifier.thickness, 0.015)
+        self.assertEqual(modifier.offset, 0.0)
+        self.assertEqual(len(list(self.blender_object.modifiers)), 1)
+        self.assertEqual(report["modified_objects"][0]["modifier_type"], "SOLIDIFY")
+        self.assertEqual(report["modified_objects"][0]["parameters"], {"thickness": 0.015, "offset": 0.0})
+        self.assertEqual(report["removed_modifiers"][0]["modifier"]["name"], "AI_Solidify")
+
     def test_save_as_copy_only_refuses_source_and_records_output_copy(self) -> None:
         output_file = Path(self.temp_dir.name) / "copies" / "output.blend"
 
@@ -185,6 +229,8 @@ class Phase2CoreGeometryApiTests(unittest.TestCase):
 
         self.assertIs(compatibility_wrapper.require_object, self.core_geometry_api.require_object)
         self.assertIs(compatibility_wrapper.add_bevel_modifier, self.core_geometry_api.add_bevel_modifier)
+        self.assertIs(compatibility_wrapper.add_solidify_modifier, self.core_geometry_api.add_solidify_modifier)
+        self.assertIs(compatibility_wrapper.add_weighted_normal_modifier, self.core_geometry_api.add_weighted_normal_modifier)
         self.assertNotIn("import bpy", wrapper_source)
         self.assertNotIn("bpy.", wrapper_source)
         self.assertNotIn("from blender_ops import core_geometry_api", domain_source)

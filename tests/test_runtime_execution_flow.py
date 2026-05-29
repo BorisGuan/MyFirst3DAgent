@@ -9,7 +9,7 @@ if str(AGENT_ROOT) not in sys.path:
     sys.path.insert(0, str(AGENT_ROOT))
 
 from domain import DomainOperationInput, OperationOutcome
-from runtime import ExecutionContext, RuntimeExecutionError, execute_ready_task
+from runtime import ExecutionContext, RuntimeExecutionError, default_execution_context, execute_ready_task
 from task_object import (
     ExecutionPolicy,
     TaskConstraints,
@@ -209,6 +209,20 @@ class RuntimeExecutionFlowTests(unittest.TestCase):
         self.assertEqual(error_context.exception.stage, "domain_operation")
         self.assertEqual(task.state, TaskState.FAILED)
         self.assertEqual(persistence_api.save_calls, [])
+
+    def test_default_execution_context_registers_supported_domain_handlers(self) -> None:
+        context = default_execution_context()
+
+        self.assertIn("armor_edge_lip_prepare", context.domain_handlers)
+        self.assertIn("armor_layer_plate_prepare", context.domain_handlers)
+        self.assertIn("edge_soften", context.domain_handlers)
+        self.assertIn("hardpoint_socket_prepare", context.domain_handlers)
+        self.assertIn("panel_line_bevel_prepare", context.domain_handlers)
+        self.assertIn("solidify_thickness_preview", context.domain_handlers)
+        self.assertIn("surface_inset_prepare", context.domain_handlers)
+        self.assertIn("thruster_nozzle_prepare", context.domain_handlers)
+        self.assertIn("vent_slot_prepare", context.domain_handlers)
+        self.assertIn("weighted_normal_finish", context.domain_handlers)
 
     def test_non_ready_task_is_rejected_without_state_change(self) -> None:
         task = ready_task()

@@ -1,10 +1,10 @@
 # Gundam Model Details Design Agent
 
-Local AI-assisted Blender modification agent for mecha model detailing. The current implementation uses a state-based `TaskObject` main chain and has completed the first full lifecycle milestone through a real Blender smoke test.
+Local AI-assisted Blender modification agent for mecha model detailing. The current implementation uses a state-based `TaskObject` main chain, has completed the first full lifecycle milestone through a real Blender smoke test, and now supports ten modifier-only real operations through intent-aware operation selection. The next development track focuses on building a designer-oriented operation library for common mecha modeling actions.
 
 ## Current Milestone
 
-Completed architecture steps: Step 0 through Step 20 in [docs/state_based_task_object_agent_development_plan.md](docs/state_based_task_object_agent_development_plan.md).
+Completed architecture steps: Step 0 through Step 22 in [docs/state_based_task_object_agent_development_plan.md](docs/state_based_task_object_agent_development_plan.md).
 
 Current real modification chain:
 
@@ -24,7 +24,8 @@ Agent Layer
 ## What Works Now
 
 - Natural-language input can create a draft `TaskObject`.
-- Planning can validate, bind, select `edge_soften`, complete parameters, and mark the task `ready_to_execute`.
+- Planning can validate, bind, select `edge_soften`, `weighted_normal_finish`, `solidify_thickness_preview`, `panel_line_bevel_prepare`, `armor_layer_plate_prepare`, `vent_slot_prepare`, `thruster_nozzle_prepare`, `hardpoint_socket_prepare`, `surface_inset_prepare`, or `armor_edge_lip_prepare`, complete parameters, and mark the task `ready_to_execute`.
+- Planning ranks compatible `OperationSpec` candidates by explicit operation request and intent metadata.
 - Runtime can execute a ready `TaskObject`, call Domain, save a `.blend` copy, write a Runtime report, and mark the task completed or failed.
 - CLI supports `--input`, `--task-file`, and legacy `--modify-copy` conversion into TaskObject.
 - Real Blender smoke has passed with `edge_soften` on `examples/BlendFile/Gundam/GF-Gundam.blend`.
@@ -53,7 +54,8 @@ The smoke runner uses `D:\tools\blender-5.1\blender.exe` by default and writes g
 
 ## Current Limits
 
-- Only one real operation is supported: `edge_soften`.
+- Real operations currently supported in the default Runtime context: `edge_soften`, `weighted_normal_finish`, `solidify_thickness_preview`, `panel_line_bevel_prepare`, `armor_layer_plate_prepare`, `vent_slot_prepare`, `thruster_nozzle_prepare`, `hardpoint_socket_prepare`, `surface_inset_prepare`, `armor_edge_lip_prepare`.
+- Dedicated multi-operation fake E2E coverage is deferred while the core designer operation library is expanded.
 - The real Blender smoke currently uses a ready task file, not a full natural-language-to-Blender smoke.
 - `TaskPlanning.selected_operation` is a single operation, not a sequence.
 - Preview and authoring remain legacy side paths.
@@ -65,3 +67,8 @@ The smoke runner uses `D:\tools\blender-5.1\blender.exe` by default and writes g
 - Legacy fact source cleanup: [docs/step_18_legacy_fact_source_cleanup.md](docs/step_18_legacy_fact_source_cleanup.md)
 - Real Blender smoke result: [docs/step_20_real_blender_smoke.md](docs/step_20_real_blender_smoke.md)
 - Multi-operation expansion plan: [docs/multi_operation_expansion_plan.md](docs/multi_operation_expansion_plan.md)
+- Designer operation library plan: [docs/designer_operation_library_development_plan.md](docs/designer_operation_library_development_plan.md)
+- Atomic operation extension analysis: [docs/atomic_operation_extension_analysis.md](docs/atomic_operation_extension_analysis.md)
+- Atomic operation development plan: [docs/atomic_operation_development_plan.md](docs/atomic_operation_development_plan.md)
+- Agent global architecture design: [docs/agent_global_architecture_design.md](docs/agent_global_architecture_design.md)
+- Agent execution reliability design: [docs/agent_execution_reliability_design.md](docs/agent_execution_reliability_design.md)
