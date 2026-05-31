@@ -1,4 +1,4 @@
-# Agent 全局架构设计说明
+﻿# Agent 全局架构设计说明
 
 ## 0. 总览
 
@@ -602,7 +602,7 @@ OperationSpec.default_parameters + intent.parameters
 建议下一步文档：
 
 ```text
-docs/operation_parameter_accuracy_analysis.md
+docs/03_operation_library/operation_parameter_accuracy_analysis.md
 ```
 
 ### 3.3.3 Target Binding
@@ -875,7 +875,7 @@ density 对参数的影响
 产物建议：
 
 ```text
-docs/operation_parameter_accuracy_analysis.md
+docs/03_operation_library/operation_parameter_accuracy_analysis.md
 ```
 
 ## 5.2 Operation 选择准确性
@@ -912,7 +912,7 @@ target object type filtering
 参考文档：
 
 ```text
-docs/agent_execution_reliability_design.md
+docs/04_architecture_review_portfolio/agent_execution_reliability_design.md
 ```
 
 需要分析：

@@ -1,10 +1,10 @@
-# Gundam Model Details Design Agent
+﻿# Gundam Model Details Design Agent
 
 Local AI-assisted Blender modification agent for mecha model detailing. The current implementation uses a state-based `TaskObject` main chain, has completed the first full lifecycle milestone through a real Blender smoke test, and now supports ten modifier-only real operations through intent-aware operation selection. The next development track focuses on building a designer-oriented operation library for common mecha modeling actions.
 
 ## Current Milestone
 
-Completed architecture steps: Step 0 through Step 22 in [docs/state_based_task_object_agent_development_plan.md](docs/state_based_task_object_agent_development_plan.md).
+Completed architecture steps: Step 0 through Step 22 in [docs/02_task_object_architecture/state_based_task_object_agent_development_plan.md](docs/02_task_object_architecture/state_based_task_object_agent_development_plan.md).
 
 Current real modification chain:
 
@@ -63,12 +63,13 @@ The smoke runner uses `D:\tools\blender-5.1\blender.exe` by default and writes g
 
 ## Key Documents
 
-- Current architecture status: [docs/current_task_object_architecture_status.md](docs/current_task_object_architecture_status.md)
-- Legacy fact source cleanup: [docs/step_18_legacy_fact_source_cleanup.md](docs/step_18_legacy_fact_source_cleanup.md)
-- Real Blender smoke result: [docs/step_20_real_blender_smoke.md](docs/step_20_real_blender_smoke.md)
-- Multi-operation expansion plan: [docs/multi_operation_expansion_plan.md](docs/multi_operation_expansion_plan.md)
-- Designer operation library plan: [docs/designer_operation_library_development_plan.md](docs/designer_operation_library_development_plan.md)
-- Atomic operation extension analysis: [docs/atomic_operation_extension_analysis.md](docs/atomic_operation_extension_analysis.md)
-- Atomic operation development plan: [docs/atomic_operation_development_plan.md](docs/atomic_operation_development_plan.md)
-- Agent global architecture design: [docs/agent_global_architecture_design.md](docs/agent_global_architecture_design.md)
-- Agent execution reliability design: [docs/agent_execution_reliability_design.md](docs/agent_execution_reliability_design.md)
+- Documentation index: [docs/README.md](docs/README.md)
+- Current architecture status: [docs/02_task_object_architecture/current_task_object_architecture_status.md](docs/02_task_object_architecture/current_task_object_architecture_status.md)
+- Legacy fact source cleanup: [docs/02_task_object_architecture/step_18_legacy_fact_source_cleanup.md](docs/02_task_object_architecture/step_18_legacy_fact_source_cleanup.md)
+- Real Blender smoke result: [docs/02_task_object_architecture/step_20_real_blender_smoke.md](docs/02_task_object_architecture/step_20_real_blender_smoke.md)
+- Multi-operation expansion plan: [docs/03_operation_library/multi_operation_expansion_plan.md](docs/03_operation_library/multi_operation_expansion_plan.md)
+- Designer operation library plan: [docs/03_operation_library/designer_operation_library_development_plan.md](docs/03_operation_library/designer_operation_library_development_plan.md)
+- Atomic operation extension analysis: [docs/03_operation_library/atomic_operation_extension_analysis.md](docs/03_operation_library/atomic_operation_extension_analysis.md)
+- Atomic operation development plan: [docs/03_operation_library/atomic_operation_development_plan.md](docs/03_operation_library/atomic_operation_development_plan.md)
+- Agent global architecture design: [docs/04_architecture_review_portfolio/agent_global_architecture_design.md](docs/04_architecture_review_portfolio/agent_global_architecture_design.md)
+- Agent execution reliability design: [docs/04_architecture_review_portfolio/agent_execution_reliability_design.md](docs/04_architecture_review_portfolio/agent_execution_reliability_design.md)

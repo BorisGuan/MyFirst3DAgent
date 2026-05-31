@@ -1,4 +1,4 @@
-# V0.3 Phase 1 收口记录
+﻿# V0.3 Phase 1 收口记录
 
 ## 1. 阶段结论
 
@@ -15,7 +15,7 @@ V0.3 Phase 1 已完成。当前阶段目标是把 V0.2 的 OperationPlan V2 转�
 
 ## 2. 已完成产物
 
-- `docs/v0_3_execution_blueprint_plan.md`
+- `docs/00_early_product_and_v0_pipeline/v0_3_execution_blueprint_plan.md`
 - `3d_agent/agent/execution_blueprint.py`
 - `3d_agent/prompts/v0_3_execution_blueprint_prompt_draft.txt`
 - `tests/test_v0_3_execution_blueprint.py`

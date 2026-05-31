@@ -1,4 +1,4 @@
-# Designer Operation Library 开发计划书
+﻿# Designer Operation Library 开发计划书
 
 ## 0. 总结
 
@@ -499,7 +499,7 @@ operations:
 产物：
 
 ```text
-docs/designer_operation_library_development_plan.md
+docs/03_operation_library/designer_operation_library_development_plan.md
 ```
 
 ### Step DOL-2：solidify_thickness_preview
@@ -576,8 +576,8 @@ Safety 分级重构
 产物：
 
 ```text
-docs/atomic_operation_extension_analysis.md
-docs/atomic_operation_development_plan.md
+docs/03_operation_library/atomic_operation_extension_analysis.md
+docs/03_operation_library/atomic_operation_development_plan.md
 ```
 
 结论：Composite Operation 需求回收后移；当前阶段 10 个 Atomic Operations 已完成，下一步按照 [Atomic Operation 开发计划书](atomic_operation_development_plan.md) 整理 Composite Pattern 候选表，不实现 sequence。

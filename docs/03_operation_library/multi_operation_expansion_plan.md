@@ -1,4 +1,4 @@
-# 多 Operation 扩展开发计划书
+﻿# 多 Operation 扩展开发计划书
 
 ## 0. 总结
 
@@ -446,7 +446,7 @@ python -m unittest discover -s tests
 
 ```text
 scripts/run_step20_blender_smoke.py
-docs/step_20_real_blender_smoke.md
+docs/02_task_object_architecture/step_20_real_blender_smoke.md
 ```
 
 目标：

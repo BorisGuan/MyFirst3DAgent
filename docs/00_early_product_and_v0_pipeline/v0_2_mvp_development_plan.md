@@ -1,4 +1,4 @@
-# V0.2 可用全链路 MVP 开发计划
+﻿# V0.2 可用全链路 MVP 开发计划
 
 ## 1. 项目定义
 
@@ -676,7 +676,7 @@ V0.2 只有在同时满足以下条件时才算完成：
 
 涉及文件：
 
-- `docs/v0_2_mvp_development_plan.md`
+- `docs/00_early_product_and_v0_pipeline/v0_2_mvp_development_plan.md`
 
 执行内容：
 
@@ -1037,7 +1037,7 @@ V0.2 只有在同时满足以下条件时才算完成：
 
 涉及文件：
 
-- `docs/v0_2_usage.md`
+- `docs/00_early_product_and_v0_pipeline/v0_2_usage.md`
 
 执行内容：
 
